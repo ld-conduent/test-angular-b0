@@ -9,11 +9,14 @@
 
   <!-- phone refers to the input element; pass its `value` to an event handler -->
   <button (click)="callPhone(phone.value)">Call</button>
+
+  <span>{{phone.value}}</span>
 </div>
 
 <div>
   <input ref-fax placeholder="fax number" />
   <button (click)="callFax(fax.value)">Fax</button>
+  <span>{{fax.value}}</span>
 </div>
 
 <hr />
@@ -32,10 +35,13 @@
 
 <h2>Reference variables, forms, and NgForm</h2>
 <form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
-  <label for="name"
-    >Name <input class="form-control" name="name" ngModel required />
+  <label for="name">Name 
+    <input name="name" ngModel required />
   </label>
-  <button type="submit">Submit</button>
+  <label for="name">Last Name 
+    <input name="lastName" ngModel required />
+  </label>
+<button type="submit">Submit</button>
 </form>
 
 <div [hidden]="!itemForm.form.valid">
